@@ -50,6 +50,7 @@ const input = document.getElementById('input');
 input.addEventListener('submit', (e) => {
     e.preventDefault();
     let artistName = input.artistName.value;
+    cards.replaceChildren();
     console.log(testerFunction(artistName));
     input.reset();
 })
@@ -58,12 +59,17 @@ input.addEventListener('submit', (e) => {
 const makeArtistCard = (track) => {
     const card = document.createElement('div');
     card.classList.add('card');
+    card.setAttribute('style', 'width: 18rem;');
+    const image = document.createElement('img');
+    image.classList.add('card-image-top');
+    image.src = track.album.images[0].url;
     const body = document.createElement('div');
     body.classList.add('card-body');
     const p = document.createElement('p');
     p.classList.add('card-text');
+    p.innerText = track.name;
     body.append(p);
-    card.append(body);
+    card.append(image, body);
     cards.append(card);
 }
 
@@ -73,7 +79,10 @@ const testerFunction = async (artistName) => {
     let artist = await getArtist(artistName, accessToken);
     let artistId = await artist.artists.items[0].id;
     let topTracks = await getTopTracks(artistId, accessToken);
-    topTracks.tracks.forEach(track => makeArtistCard(track));
+    for (let i = 0; i < 3; i++){
+        makeArtistCard(topTracks.tracks[i]);
+    }
+    console.log(topTracks);
     return topTracks.tracks;
 }
 
