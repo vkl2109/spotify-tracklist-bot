@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Playlist Generator</title>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    
+
     <!-- CSS only -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 </head>
@@ -34,22 +34,24 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="input-group">
-                <input class="form-control border-end-0 border rounded-pill" type="text" placeholder="insert keywords here" id="example-search-input">
+            <form class="input-group" id="input">
+                <input name="artistName" class="form-control border-end-0 border rounded-pill" type="text" placeholder="insert keywords here" id="example-search-input">
                 <span class="input-group-append">
-                    <button class="btn btn-outline-secondary bg-blue border-start-0 border rounded-pill ms-n3" type="button">
+                    <button class="btn btn-outline-secondary bg-blue border-start-0 border rounded-pill ms-n3" type="submit">
                         Generate!
                     </button>
                 </span>
-            </div>
+            </form>
         </div>
         <div class="row">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap" id="exampleImg">
-                <div class="card-body">
-                    <p class="card-text">
-                        Good 4 u
-                    </p>
+            <div id="cards">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap" id="exampleImg">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Good 4 u
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
