@@ -38,32 +38,35 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="title and intro">
-                <h6>name 3 songs</h6>
-                <p>Enter a band or artist name below and we'll recommend three songs by them.</p>
+        <div class="row d-flex flex-row">
+            <div class="col-md-6">
+                <div class="title-and-intro col">
+                    <h6>name 3 songs</h6>
+                    <p>Enter a band or artist name below and we'll recommend three songs by them.</p>
+                </div>
+                <form class="input-group" id="input">
+                    <input name="artistName" class="form-control border-end-0 border rounded-pill" type="text" placeholder="insert artist here" id="example-search-input">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary bg-blue border-start-0 border rounded-pill ms-n3" type="submit">
+                                Search 🔎
+                        </button>
+                    </span>
+                    </form>
             </div>
-            <form class="input-group" id="input">
-                <input name="artistName" class="form-control border-end-0 border rounded-pill" type="text" placeholder="insert artist here" id="example-search-input">
-                <span class="input-group-append">
-                    <button class="btn btn-outline-secondary bg-blue border-start-0 border rounded-pill ms-n3" type="submit">
-                        Search 🔎
-                    </button>
-                </span>
-            </form>
-        </div>
-        <div class="row" >
-            <div id="cards" class="d-flex flex-row justify-content-center">
+            <div class="col-md-6 d-flex flex-column justify-content-center" id="cards" >
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde-1200x1200.jpg" alt="Card image cap" id="exampleImg">
+                    <img class="card-img-top"
+                        src="https://www.sleek-mag.com/wp-content/uploads/2016/08/AlbumCovers_Blonde-1200x1200.jpg" alt="Card image cap"
+                        id="exampleImg">
                     <div class="card-body">
                         <p class="card-text">
                             Good 4 u
                         </p>
                     </div>
                 </div>
+
             </div>
-        </div>
+        </div>y5
     </div>
     <script defer src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- JavaScript Bundle with Popper -->
