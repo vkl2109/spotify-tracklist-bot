@@ -40,7 +40,7 @@ loginForm.addEventListener('submit', (e) => {
     logoutForm.classList.toggle('hidden');
     loggedIn.classList.toggle('hidden');
     globalUserID = loginForm.loginInput.value;
-    userID.innerText = 'UserID: ' + globalUserID;
+    userID.innerText = 'Name: ' + globalUserID;
     loginForm.reset();
 })
 logoutForm.addEventListener('submit', (e) => {
@@ -179,12 +179,15 @@ const makeArtistCard = (track) => {
 const makeEmbed = (track) => {
     const card = document.createElement('div');
     card.classList.add('card');
+    card.setAttribute('id', 'cardEmbed');
     const upperDiv = document.createElement('div');
     upperDiv.classList.add('justify-content-center', 'd-flex');
+    upperDiv.setAttribute('id', 'cardUpper');
     const title = document.createElement('a');
     title.innerText = track.name;
     title.href = track.external_urls.spotify;
     title.setAttribute('target', '_blank');
+    title.classList.add('btn', 'btn-outline-success', 'my-2', 'my-sm-0');
     const button = document.createElement('button');
     button.classList.add('delete');
     button.innerText = 'X';
@@ -192,7 +195,7 @@ const makeEmbed = (track) => {
         card.remove();
     })
     const iFrame = document.createElement('iframe');
-    iFrame.setAttribute('style', 'border-radius:12px');
+    // iFrame.setAttribute('style', 'border-radius:12px');
     iFrame.setAttribute('src', "https://open.spotify.com/embed/track/" + track.id + "?utm_source=generator");
     iFrame.setAttribute('height', '100');
     iFrame.setAttribute('allow', "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
