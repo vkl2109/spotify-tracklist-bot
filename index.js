@@ -185,6 +185,7 @@ const makeEmbed = (track) => {
     upperDiv.setAttribute('id', 'cardUpper');
     const title = document.createElement('a');
     title.innerText = track.name;
+    title.style.fontFamily = 'Acme'
     title.href = track.external_urls.spotify;
     title.setAttribute('target', '_blank');
     title.classList.add('btn', 'btn-outline-success', 'my-2', 'my-sm-0');
