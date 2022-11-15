@@ -4,6 +4,7 @@ const clientSecret = keys.clientSecret;
 const cards = document.getElementById('cards');
 let globalUserID = '';
 let playlistDescription = '';
+const redirectURI = 'http://127.0.0.1:5500/index.html';
 
 // generate new access token using client ID and client secret
 const getToken = async () => {
@@ -50,20 +51,28 @@ logoutForm.addEventListener('submit', (e) => {
     globalUserID = '';
 })
 
-// create a new playlist logic button
-const newPlaylist = document.getElementById('newPlaylist');
-const createPlaylist = document.getElementById('createPlaylist');
-createPlaylist.addEventListener('click', () => {
-    if (globalUserID == '') {
-        newPlaylist.innerText = 'Must Log In First!!';
-    }
-    else if (playlistDescription == '') {
-        newPlaylist.innerText = 'Must Insert Valid Sentence!!';
-    }
-    else {
+// // create a new playlist logic button
+// const newPlaylist = document.getElementById('newPlaylist');
+// const createPlaylist = document.getElementById('createPlaylist');
+// createPlaylist.addEventListener('click', () => {
+//     if (globalUserID == '') {
+//         newPlaylist.innerText = 'Must Log In First!!';
+//     }
+//     else if (playlistDescription == '') {
+//         newPlaylist.innerText = 'Must Insert Valid Sentence!!';
+//     }
+//     else {
 
-    }
-})
+//     }
+// })
+
+// generate authorization code token
+const getAuthToken = async () => {
+    const result = await fetch ('https://accounts.spotify.com/authorize?client_id=' 
+    + clientId + '&scopes=playlist-read-public&response_type=code&redirect+uri=' + encodeURIComponent(redirectURI))
+    const data = result.json();
+    return data;
+}
 
 // generate new playlist using userID
 const generatePlaylist = async (userID) => {
@@ -76,8 +85,8 @@ const generatePlaylist = async (userID) => {
         },
         body: JSON.stringify({
             "name": "Newly Generated Playlist!",
-            "description": playlistDescription,
-            "public": false
+            "description": "testing",
+            "public": true
         })
     });
     const newPlaylist = await result.json();
@@ -143,7 +152,7 @@ input.addEventListener('submit', (e) => {
     e.preventDefault();
     cards.replaceChildren();
     let sentence = input.artistName.value;
-    playlistDescription= sentence;
+    playlistDescription = sentence;
     let words = sentence.split(' ');
     words.forEach(async (word) => {
         let newTrack = await testWords(word);
@@ -168,13 +177,29 @@ const makeArtistCard = (track) => {
 
 // create new embed playlist
 const makeEmbed = (track) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    const upperDiv = document.createElement('div');
+    upperDiv.classList.add('justify-content-center', 'd-flex');
+    const title = document.createElement('a');
+    title.innerText = track.name;
+    title.href = track.external_urls.spotify;
+    title.setAttribute('target', '_blank');
+    const button = document.createElement('button');
+    button.classList.add('delete');
+    button.innerText = 'X';
+    button.addEventListener('click', () => {
+        card.remove();
+    })
     const iFrame = document.createElement('iframe');
     iFrame.setAttribute('style', 'border-radius:12px');
     iFrame.setAttribute('src', "https://open.spotify.com/embed/track/" + track.id + "?utm_source=generator");
     iFrame.setAttribute('height', '100');
     iFrame.setAttribute('allow', "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
     iFrame.setAttribute('loading', "lazy");
-    cards.append(iFrame);
+    upperDiv.append(title, button);
+    card.append(upperDiv, iFrame);
+    cards.append(card);
 }
 
 // run all functions through async await
