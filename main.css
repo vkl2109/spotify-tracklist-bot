@@ -8,7 +8,13 @@ div {
     font-family: 'Acme', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 65px;
+    font-size: 50px;
+}
+#h5 {
+    font-family: 'Acme', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
 }
 p {
     font-family: 'Acme', sans-serif;
