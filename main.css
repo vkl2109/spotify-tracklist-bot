@@ -4,11 +4,11 @@ body {
 div {
     padding-top: 15px;
 }
-h6 {
+#h6 {
     font-family: 'Acme', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 65px
+    font-size: 65px;
 }
 p {
     font-family: 'Acme', sans-serif;
@@ -28,4 +28,6 @@ p {
     display: table;
     clear: both;
 }
-
+.hidden {
+    display: none;
+}
