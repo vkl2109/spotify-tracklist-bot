@@ -183,6 +183,7 @@ const makeEmbed = (track) => {
     upperDiv.classList.add('justify-content-center', 'd-flex');
     const title = document.createElement('a');
     title.innerText = track.name;
+    title.style.fontFamily = 'Acme'
     title.href = track.external_urls.spotify;
     title.setAttribute('target', '_blank');
     const button = document.createElement('button');
