@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Playlist Generator</title>
+    <link rel="shortcut icon" type="image/jpg" href="./images/favicon.ico" />
     <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,14 +15,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-#FFF9F4 bg-#FFF9F4">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="./images/spotify.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                Spotify Playlist Generator
-            </a>
+            <!-- <a class="navbar-brand" href="#">
+                <img src="./images/spotify.png" width="30" height="30" class="d-inline-block" alt="">
+            </a> -->
+            <h5 class="d-inline-block" id="h5">SPOTIFY TRACK LIST GENERATOR</h5>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,8 +54,9 @@
         <div class="row d-flex flex-row">
             <div class="col-md-6">
                 <div class="title-and-intro col">
-                    <h6 id="h6">create your own playlist!</h6>
+                    <h6 id="h6">track list bot</h6>
                     <p>Enter a sentence below and we'll show you songs starting with those words.</p>
+                    <p>Ex. "Jolene orders a sundae." returns 4+ songs inspired by those words.</p>
                 </div>
                 <form class="input-group" id="input">
                     <input name="artistName" class="form-control border-end-0 border rounded-pill" type="text" placeholder="insert sentence here" id="example-search-input">
@@ -87,7 +90,7 @@
             </div>
         </div>
     </div>
-    <footer class="text-center text-white hidden" style="background-color: #21081a;" id="footer">
+    <footer class="fixed-bottom text-center text-white hidden" style="background-color: #21081a;" id="footer">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             Insert a Sentence and generate a Spotify playlist!!
             © 2022 Copyright: Vincent Le and Helen Pernham
